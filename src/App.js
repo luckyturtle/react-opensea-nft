@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import CollectionCard from './components/CollectionCard';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <CollectionCard
+        id={0}
+        name="CP Punks"
+        traits={[{ value: 8 }]}
+        image="https://gateway.thirdweb.dev/ipfs/QmZ5fD3UTRh8ALZCpMdypHkhMQSXyi4yyCz3Ea19kPmtXg/0.jpg"
+      />
     </div>
   );
 }
