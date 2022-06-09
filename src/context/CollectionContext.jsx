@@ -5,6 +5,7 @@ export const CollectionContext = React.createContext();
 
 export const CollectionProvider = ({ children }) => {
   const [collections, setCollections] = useState([]);
+  const [activeCollection, setActiveCollection] = useState();
 
   useEffect(() => {
     const getNftList = async () => {
@@ -13,13 +14,16 @@ export const CollectionProvider = ({ children }) => {
       );
 
       setCollections(openseaData.data.assets);
+      setActiveCollection(openseaData.data.assets[0]);
     };
 
     getNftList();
   }, []);
 
   return (
-    <CollectionContext.Provider value={{ collections }}>
+    <CollectionContext.Provider
+      value={{ collections, activeCollection, setActiveCollection }}
+    >
       {children}
     </CollectionContext.Provider>
   );

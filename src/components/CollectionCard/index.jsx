@@ -3,14 +3,14 @@ import React from 'react';
 import weth from '../../assets/weth.png';
 import './index.css';
 
-const CollectionCard = ({ id, name, traits, image }) => {
+const CollectionCard = ({ id, name, traits, image, handleClick }) => {
   return (
-    <div className="collectionCard">
+    <div className="collectionCard" onClick={handleClick}>
       <img src={image} alt="cardImage" />
       <div className="details">
         <div className="name">
           {name}
-          <div className="id">#{id}</div>
+          <div className="id">•#{id}</div>
         </div>
         <div className="priceContainer">
           <img className="wethImage" src={weth} alt="wethImage" />

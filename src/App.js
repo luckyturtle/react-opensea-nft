@@ -1,17 +1,22 @@
-import './App.css';
-import CollectionCard from './components/CollectionCard';
+import { useContext } from 'react';
+
+import CollectionList from './components/CollectionList';
 import Header from './components/Header';
+import Main from './components/Main';
+import './App.css';
+import { CollectionContext } from './context/CollectionContext';
 
 function App() {
+  const { collections } = useContext(CollectionContext);
   return (
     <div className="app">
       <Header />
-      <CollectionCard
-        id={0}
-        name="CP Punks"
-        traits={[{ value: 8 }]}
-        image="https://gateway.thirdweb.dev/ipfs/QmZ5fD3UTRh8ALZCpMdypHkhMQSXyi4yyCz3Ea19kPmtXg/0.jpg"
-      />
+      {collections.length && (
+        <>
+          <Main />
+          <CollectionList />
+        </>
+      )}
     </div>
   );
 }
